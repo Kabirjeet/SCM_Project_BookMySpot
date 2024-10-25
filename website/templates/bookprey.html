@@ -1,5 +1,229 @@
 {% extends "base.html" %} {% block title %}Book Prey{% endblock %}
 
-{% block content %} 
-<p>Welcome from Book Prey</p>
+{% block content %}
+<style>
+    .movie {
+        display: flex;
+        gap: 5px;
+    }
+
+    .booking {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bookbtn {
+        justify-content: center;
+        align-items: center;
+        border: none;
+        width: 100px;
+        height: 30px;
+        /* background-color: red; */
+    }
+
+    @media(max-width: 1200px) {
+        .movie {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    @media(max-width: 995px) {
+        .trailer {
+            width: 450px;
+            height: 300px;
+        }
+    }
+
+    @media(max-width: 430px) {
+        .trailer {
+            width: 100%;
+            height: 300px;
+        }
+    }
+</style>
+<!-- ---------------------------------------------Movie Poster and Trailer---------------------------------------------- -->
+<div class="movie">
+    <img src="static/Hollywood_Poster/Hollywood_Poster_Prey.jpeg" alt="Prey Movie Poster" width="250px"
+        height="300px" style="margin-top: 70px;"> <br>
+    <video src="static/Hollywood_Poster/Prey_trailer.mp4" class="trailer" muted autoplay controls></video>
+</div>
+
+<!-- ---------------------------------------------Booking Options---------------------------------------------- -->
+
+<div class="booking">
+    <!-- <center> -->
+    <!-- <div class="form-group"> -->
+    <form action="/book_tickets" method="post">
+        
+        <input type="checkbox" name="movie" id="movie" value="Prey" checked hidden>
+
+        <label for="city">Select Your City:</label>
+        <select name="city" id="city" class="form-select" onchange="cinemalogic()">
+            <option value="">Select Your City</option>
+            <option value="chandigarh">Chandigarh</option>
+            <option value="mohali">Mohali</option>
+        </select>
+
+        <div id="chd" style="display: none;">
+            <label for="cinema">Select Your Preferred Cinema:</label>
+            <select name="cinema">
+                <option value=" ">Select a Cinema</option>
+                <option value="PVR Elante">PVR Elante</option>
+                <option value="PVR Centra">PVR Centra</option>
+            </select>
+        </div>
+
+        <div id="moh" style="display: none;">
+            <label for="cinema">Select Your Preferred Cinema:</label>
+            <select name="cinema">
+                <option value=" ">Select a Cinema</option>
+                <option value="PVR CP67">PVR CP67</option>
+                <option value="PVR VR Punjab">PVR VR Punjab</option>
+                <option value="PVR Mohali Walk">PVR Mohali Walk</option>
+            </select>
+        </div>
+
+        <!-- --------------------------------------------Category of Seats-------------------------------- -->
+
+        <div class="seat_category" id="seat_category" style="display: none;">
+            <label for="seat_category">Select the Category of Seats:</label>
+            <select name="Category" id="Category">
+                <option value=" ">Select your Category</option>
+                <option value="silver">Silver - Rs.120</option>
+                <option value="gold">Gold - Rs.180</option>
+                <option value="platinum">Platinum - Rs.240</option>
+            </select>
+        </div>
+
+        <!-- ---------------------------------------Number of Tickets----------------------------------- -->
+
+        <div class="num_of_tickets" id="num_of_tickets" style="display: none;">
+            <label for="ticketsnum">Select Number of Tickets:</label>
+            <select name="ticketsnum" id="ticketsnum">
+                <option value=" ">Select Number of Tickets</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+
+        <!-- ---------------------------------------------Movie Date------------------------------------------- -->
+        <div class="movie_date" id="movie_date" style="display: none;">
+            <label for="movie_date">Select Date:</label>
+            <input type="date" id="date" name="date" min="2024-11-01" max="2024-11-15">
+        </div>
+
+        <!-- -----------------------------------------------Movie Time-------------------------------------------- -->
+        <div class="movie_time" id = movie_time style="display: none;">
+            <label for="movie_time">Select Show Time:</label>
+            <select name="Time" id="time" onchange="check()">
+                <option value=" ">Select Your Preferred Slot</option>
+                <option value="12:00 P.M.">12:00 P.M.</option>
+                <option value="03:00 P.M.">03:00 P.M.</option>
+                <option value="06:00 P.M.">06:00 P.M.</option>
+                <option value="09:00 P.M.">09:00 P.M.</option>
+            </select>
+         </div>
+        <button type="submit" class="bookbtn" id="bookbtn" style="display: none;">Book Tickets</button>
+        <!-- <button class="bookbtn" id="bookbtn" style="display: none;" onclick="book()">Book Tickets</button> -->
+    </form>
+    <!-- </div> -->
+    <!-- </center> -->
+</div>
+
+<script>
+    // console.log(city)
+
+    function cinemalogic() {
+        var city = document.getElementById("city").value;
+        const rjp = document.getElementById("rjp");
+        const moh = document.getElementById("moh");
+        const chd = document.getElementById("chd");
+        const amb = document.getElementById("amb");
+        const seat_category = document.getElementById("seat_category");
+        const num_of_tickets = document.getElementById("num_of_tickets");
+        const bookbtn = document.getElementById("bookbtn");
+        var movie_date = document.getElementById("movie_date");
+        var movie_time = document.getElementById("movie_time");
+
+        console.log(city);
+        if (city == 'chandigarh') {
+            moh.style.display = 'none';
+            chd.style.display = 'block';
+        } else if (city == 'mohali') {
+            moh.style.display = 'block';
+            chd.style.display = 'none';
+        } else {
+            moh.style.display = 'none';
+            chd.style.display = 'none';
+        }
+
+        if (city != " ") {
+            seat_category.style.display = 'block';
+            num_of_tickets.style.display = 'block';
+            movie_date.style.display = 'block';
+            movie_time.style.display = 'block';
+        }
+    }
+
+    function check() {
+        var seat_category_val = document.getElementById("Category").value;
+        var num_of_tickets_val = document.getElementById("ticketsnum").value;
+        var timeslot_val = document.getElementById("time").value;
+
+        if (seat_category_val !== " " && num_of_tickets_val !== " " && timeslot_val !== " ") {
+            document.getElementById("bookbtn").style.display = 'block';
+        } else {
+            document.getElementById("bookbtn").style.display = 'none';
+        }
+    }
+
+    function book() {
+
+        var category = document.getElementById("Category").value;
+        var ticketsnum = document.getElementById("ticketsnum").value;
+
+        console.log("Selected Category: " + category);
+        console.log("Number of Tickets: " + ticketsnum);
+
+        var price_per_ticket = 0;
+        var total_payable = 0;
+
+        if (category == "silver") {
+            price_per_ticket = 120;
+        } else if (category == "gold") {
+            price_per_ticket = 180;
+        } else if (category == "platinum") {
+            price_per_ticket = 240;
+        } else {
+            price_per_ticket = 0
+        }
+
+        alert("Amount Payable: Rs. " + (price_per_ticket * ticketsnum))
+    }
+</script>
 {% endblock %}
