@@ -163,6 +163,41 @@ def book_tickets():
     else:
         flash('Email service is not configured properly.', category='error')
         return redirect(url_for('auth.book_tickets'))
+    
+# ------------------------------------------------------Reset Password------------------------------------------
+
+@auth.route('/reset_password', methods=['GET', 'POST'])
+def reset_password():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        new_password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
+
+        if email and not new_password:
+            
+            user = User.query.filter_by(email=email).first()
+            if user:
+                flash('Email found. You can now reset your password.', category='success')
+                return render_template("reset_password.html", email=email, show_password_fields=True, user=current_user)
+            else:
+                flash('Email does not exist.', category='error')
+                return render_template("reset_password.html", show_password_fields=False, user=current_user)
+
+        elif email and new_password and confirm_password:
+            
+            if new_password == confirm_password and len(new_password) >= 7:
+                user = User.query.filter_by(email=email).first()
+                if user:
+                    user.password = generate_password_hash(new_password, method='pbkdf2:sha256')
+                    db.session.commit()
+                    flash('Password reset successfully!', category='success')
+                    return redirect(url_for('auth.login'))
+                else:
+                    flash('An error occurred. Please try again.', category='error')
+            else:
+                flash('Passwords do not match or are too short.', category='error')
+                
+    return render_template("reset_password.html", show_password_fields=False, user=current_user)
 
 # ------------------------------------------------------English Routes----------------------------------------------
 

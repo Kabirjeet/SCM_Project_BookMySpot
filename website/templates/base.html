@@ -113,6 +113,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+        <script>
+            setTimeout(function() {
+                var alert = document.querySelector('.alert'); 
+                if (alert) {
+                    alert.classList.remove('show');  
+                    alert.classList.add('fade');
+                    setTimeout(function() {
+                        alert.style.display = 'none';  
+                    }, 500);  
+                }
+            }, 5000); 
+        </script>
 </body>
 
 </html>
