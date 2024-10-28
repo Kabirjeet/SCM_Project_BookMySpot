@@ -1,7 +1,48 @@
 {% extends "base.html" %} {% block title %}Login{% endblock %}
 
-{% block content %} 
+{% block content %}
 
+<style>
+    .forgotpass {
+        margin-left: 85%;
+    }
+
+    @media(max-width: 950px) {
+        .forgotpass {
+            margin-left: 83%;
+        }
+    }
+
+    @media(max-width: 850px) {
+        .forgotpass {
+            margin-left: 83%;
+        }
+    }
+
+    @media(max-width: 550px) {
+        .forgotpass {
+            margin-left: 77%;
+        }
+    }
+
+    @media(max-width: 430px) {
+        .forgotpass {
+            margin-left: 69%;
+        }
+    }
+
+    @media(max-width: 380px) {
+        .forgotpass {
+            margin-left: 65%;
+        }
+    }
+
+    @media(max-width: 350px) {
+        .forgotpass {
+            margin-left: 62%;
+        }
+    }
+</style>
 
 <form method="post">
     <h2 align="center" style="font-weight: bold;">Login</h2>
@@ -12,7 +53,7 @@
     <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
-        <u><a href="{{ url_for('auth.reset_password') }}" style="margin-left: 85%;">Forgot Password?</a></u> <br>
+        <u><a href="{{ url_for('auth.reset_password') }}" class="forgotpass">Forgot Password?</a></u> <br>
     </div>
     <br>
     <center>
