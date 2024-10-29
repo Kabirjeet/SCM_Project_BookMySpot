@@ -84,12 +84,13 @@
                 <div class="form-group text-center" id="num_of_tickets" style="display: none;">
                     <label for="ticketsnum" class="font-weight-bold">Select Number of Tickets:</label>
                     <select name="ticketsnum" id="ticketsnum" class="form-control">
+                        <option value=" ">Select Number of Tickets</option>
                         {% for i in range(1, 21) %}
                         <option value="{{ i }}">{{ i }}</option>
                         {% endfor %}
                     </select>
                 </div>
-
+                
                 <!-- Date selection -->
                 <div class="form-group" id="movie_date" style="display: none;">
                     <label for="movie_date">Select Date:</label>
