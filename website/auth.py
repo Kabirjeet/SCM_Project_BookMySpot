@@ -7,18 +7,9 @@ from flask_mail import Mail, Message
 import random
 import string
 
-# import random
-# import string
-# from flask import session
-# from datetime import datetime, timedelta
-
 auth = Blueprint('auth', __name__)
 
 # ----------------------------------------EMAIL VERIFICATION--------------------------------
-
-# def generate_otp():
-#     otp = ''.join(random.choices(string.digits, k=6))
-#     return otp
 
 @auth.route('/login', methods=['GET','POST'])
 def login():
@@ -80,32 +71,6 @@ def sign_up():
     return render_template("sign_up.html", user=current_user)
 
 # ----------------------------------------------------Email Route-------------------------------
-# @auth.route('/book_tickets', methods=['POST'])
-# def book_tickets():
-#     city = request.form.get('city')
-#     cinema = request.form.get('cinema')
-#     category = request.form.get('Category')
-#     ticketsnum = request.form.get('ticketsnum')
-#     price_per_ticket = int(request.form.get('price_per_ticket'))
-    
-#     total_payable = price_per_ticket * int(ticketsnum)
-
-#     msg = Message(
-#         'Your Ticket Booking Confirmation',
-#         sender='fkabirj00@gmail.com',
-#         recipients=['kabir160804@gmail.com']  # Replace with the user's email
-#     )
-#     msg.body = f'''
-#     City: {city}
-#     Cinema: {cinema}
-#     Seat Category: {category}
-#     Number of Tickets: {ticketsnum}
-#     Total Amount Payable: Rs.{total_payable}
-#     '''
-    
-#     mail.send(msg)
-    
-#     return 'Email sent!'
 
 @auth.route('/book_tickets', methods=['POST'])
 def book_tickets():
@@ -156,7 +121,7 @@ def book_tickets():
     
     # return 'Email sent!'
 
-    mail = current_app.extensions.get('mail')  # Access the mail instance from current_app
+    mail = current_app.extensions.get('mail') 
     if mail:
         mail.send(msg)
         flash('Booking Confirmation Email Sent Successfully to registered email address!', category='success')
