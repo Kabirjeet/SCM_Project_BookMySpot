@@ -1,9 +1,11 @@
-from flask import Blueprint,render_template, request, flash, redirect, url_for, current_app
+from flask import Blueprint,render_template, request, flash, redirect, url_for, current_app, session
 from . import db
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from flask_mail import Mail, Message
+import random
+import string
 
 # import random
 # import string
@@ -166,38 +168,66 @@ def book_tickets():
     
 # ------------------------------------------------------Reset Password------------------------------------------
 
+def generate_otp():
+    return ''.join(random.choices(string.digits, k=6))
+
 @auth.route('/reset_password', methods=['GET', 'POST'])
 def reset_password():
     if request.method == 'POST':
         email = request.form.get('email')
+        otp = request.form.get('otp')
         new_password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
 
-        if email and not new_password:
-            
+        if email and not otp and not new_password:
             user = User.query.filter_by(email=email).first()
             if user:
-                flash('Email found. You can now reset your password.', category='success')
-                return render_template("reset_password.html", email=email, show_password_fields=True, user=current_user)
+                generated_otp = generate_otp()
+                session['otp'] = generated_otp
+                session['otp_email'] = email
+
+                msg = Message(
+                    'Your OTP for Password Reset',
+                    sender='kabirjeet0370.becse24@chitkara.edu.in',
+                    recipients=[email]
+                )
+                msg.body = f"Your OTP is: {generated_otp}"
+                mail = current_app.extensions.get('mail')
+                if mail:
+                    mail.send(msg)
+                    flash('OTP sent to your email. Please enter the OTP to proceed.', category='success')
+                    return render_template("reset_password.html", email=email, show_otp_field=True, user=current_user)
+                else:
+                    flash('Email service is not configured properly.', category='error')
             else:
                 flash('Email does not exist.', category='error')
-                return render_template("reset_password.html", show_password_fields=False, user=current_user)
+
+        elif email and otp and not new_password:
+            if otp == session.get('otp') and email == session.get('otp_email'):
+                flash('OTP verified! You can now reset your password.', category='success')
+                return render_template("reset_password.html", email=email, show_password_fields=True, user=current_user)
+            else:
+                flash('Invalid OTP. Please try again.', category='error')
+                return render_template("reset_password.html", email=email, show_otp_field=True, user=current_user)
 
         elif email and new_password and confirm_password:
-            
             if new_password == confirm_password and len(new_password) >= 7:
                 user = User.query.filter_by(email=email).first()
                 if user:
                     user.password = generate_password_hash(new_password, method='pbkdf2:sha256')
                     db.session.commit()
+                    session.pop('otp', None)
+                    session.pop('otp_email', None)
                     flash('Password reset successfully!', category='success')
                     return redirect(url_for('auth.login'))
                 else:
                     flash('An error occurred. Please try again.', category='error')
             else:
                 flash('Passwords do not match or are too short.', category='error')
-                
-    return render_template("reset_password.html", show_password_fields=False, user=current_user)
+
+    return render_template("reset_password.html", show_otp_field=False, show_password_fields=False, user=current_user)
+
+
 
 # ------------------------------------------------------English Routes----------------------------------------------
 
