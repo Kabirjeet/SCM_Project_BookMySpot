@@ -36,7 +36,7 @@ def create_app():
     def load_user(id):
         return User.query.get(int(id)) 
 
-    # --------------------------------------Email Verification code-------------------------------------
+    # --------------------------------------Email code-------------------------------------
     # app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
