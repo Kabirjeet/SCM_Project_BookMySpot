@@ -3,3 +3,4 @@ Flask-login
 Flask-sqlalchemy
 Flask_mail
 Gunicorn
+Requests
