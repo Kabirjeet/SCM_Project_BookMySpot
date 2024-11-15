@@ -59,6 +59,11 @@
 
         <div class="collapse navbar-collapse" id="navbar">
             <div class="navbar-nav ml-auto">
+                <a href="{{ url_for('auth.latest_movies') }}" class="btn btn-secondary my-2 my-sm-0 mr-sm-2">Latest Movies by Language</a>
+                <form class="form-inline my-2 my-lg-0" action="{{ url_for('auth.search_movies') }}" method="GET">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search movies" aria-label="Search" name="query" required>
+                    <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
                 {% if user.is_authenticated %}
                 <h6 style="color: white;" class="nav-item nav-link">Welcome {{user.fname}},</h6>
                 <a class="nav-item nav-link" id="home" href="/">Home</a>

@@ -6,6 +6,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from flask_mail import Mail, Message
 import random
 import string
+import requests
 
 auth = Blueprint('auth', __name__)
 
@@ -102,7 +103,7 @@ def book_tickets():
     msg = Message(
         'Your Ticket Booking Confirmation',
         sender='kabirjeet0370.becse24@chitkara.edu.in',
-        recipients=[recipient_email]  # Replace with the user's email
+        recipients=[recipient_email]  
     )
     msg.body = f'''
     Movie: {movie}
@@ -192,7 +193,61 @@ def reset_password():
 
     return render_template("reset_password.html", show_otp_field=False, show_password_fields=False, user=current_user)
 
+# ----------------------------------------------------------Search Movie--------------------------------------------
 
+@auth.route('/search_movies', methods=['GET'])
+def search_movies():
+    query = request.args.get('query')
+    api_key = "44905570c15e2962f494748d812e8a95"
+    url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={query}"
+
+    response = requests.get(url)
+    if response.status_code == 200:
+        movies = response.json().get('results', [])
+    else:
+        movies = []
+        flash("Failed to fetch movie results. Try again later.", "error")
+
+    for movie in movies:
+        movie['poster_url'] = f"https://image.tmdb.org/t/p/w200{movie['poster_path']}" if movie.get('poster_path') else None
+
+    return render_template('search_results.html', movies=movies, user=current_user)
+
+# ---------------------------------------------------------Latest Movies-----------------------------------------
+
+@auth.route('/latest_movies', methods=['GET', 'POST'])
+def latest_movies():
+    api_key = "44905570c15e2962f494748d812e8a95"
+    languages = {
+        'English': 'en',
+        'Hindi': 'hi-IN',
+        'Punjabi': 'pa'
+    }
+
+    selected_language = 'en'  # Default to English
+    movies = []
+
+    if request.method == 'POST':
+        language = request.form.get('language')
+        selected_language = languages.get(language, 'en')  # Get the selected language code
+        print(f"Selected language: {language} ({selected_language})")
+
+        url = f"https://api.themoviedb.org/3/discover/movie?api_key={api_key}&language={selected_language}&sort_by=release_date.desc"
+        response = requests.get(url)
+        print(f"API URL: {url}")
+
+
+        if response.status_code == 200:
+            movies = response.json().get('results', [])
+            for movie in movies:
+                if movie.get('poster_path'):
+                    movie['poster_url'] = f"https://image.tmdb.org/t/p/w200{movie['poster_path']}"
+                else:
+                    movie['poster_url'] = None  # No poster available
+        else:
+            flash("Failed to fetch latest movies. Try again later.", "error")
+
+    return render_template('latest_movies.html', movies=movies, languages=languages.keys(), selected_language=selected_language, user=current_user)
 
 # ------------------------------------------------------English Routes----------------------------------------------
 

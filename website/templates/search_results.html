@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Search Results</h1>
+<ul>
+    {% for movie in movies %}
+    <li style="list-style-type: none;">
+        {% if movie.poster_url %}
+        <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" style="width:100px;">
+        {% endif %}
+        <strong>{{ movie.title }}</strong> - {{ movie.release_date }}
+        <p>{{ movie.overview }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% if not movies %}
+<p>No movies found!</p>
+{% endif %}
+{% endblock %}
