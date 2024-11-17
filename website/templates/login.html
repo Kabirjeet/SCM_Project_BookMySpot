@@ -4,7 +4,7 @@
 
 <style>
     .forgotpass {
-        margin-left: 85%;
+        margin-left: 89%;
     }
 
     @media(max-width: 950px) {
@@ -53,6 +53,8 @@
     <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+        <input type="checkbox" id="showPassword" style="margin-top: 10px;">
+        <label for="showPassword">Show Password</label> <br>
         <u><a href="{{ url_for('auth.reset_password') }}" class="forgotpass">Forgot Password?</a></u> <br>
     </div>
     <br>
@@ -61,5 +63,14 @@
         <button type="submit" class="btn btn-primary">Login</button>
     </center>
 </form>
-
+<script>
+    document.getElementById('showPassword').addEventListener('change', function () {
+        const passwordField = document.getElementById('password');
+        if (this.checked) {
+            passwordField.type = 'text'; 
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+</script>
 {% endblock %}
