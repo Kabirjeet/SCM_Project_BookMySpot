@@ -41,7 +41,7 @@ def create_app():
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
     app.config['MAIL_USERNAME'] = 'kabirjeet0370.becse24@chitkara.edu.in'
-    app.config['MAIL_PASSWORD'] = 'pubx rirl wsrp mtid'
+    app.config['MAIL_PASSWORD'] = 'xemt pbtw qfmq ynnn'
     app.config['MAIL_USE_TLS'] = False
     app.config['MAIL_USE_SSL'] = True
 
