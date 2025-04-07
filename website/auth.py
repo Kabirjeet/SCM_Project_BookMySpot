@@ -216,9 +216,9 @@ def search_movies():
 
 # ------------------------------------------------------English Routes----------------------------------------------
 
-@auth.route('/bookdeadpool')
-def bookdeadpool():
-    return render_template("bookdeadpool.html", user=current_user)
+@auth.route('/bookfastandfurious')
+def bookfastandfurious():
+    return render_template("bookfastandfurious.html", user=current_user)
 
 @auth.route('/bookprey')
 def bookprey():
