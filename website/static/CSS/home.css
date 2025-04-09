@@ -17,7 +17,7 @@
 }
 
 
-.Fast_And_Furious_X a:hover, .Stree2 a:hover, .Jatt_and_Juliet3 a:hover, .Shaitaan a:hover, .Prey a:hover, .Article370 a:hover, .Srikanth a:hover, .Ardaas_sdbd a:hover{
+.Fast_And_Furious_X a:hover, .punjab95 a:hover, .Chhaava a:hover, .Stree2 a:hover, .Jatt_and_Juliet3 a:hover, .Shaitaan a:hover, .Prey a:hover, .Article370 a:hover, .Srikanth a:hover, .Ardaas_sdbd a:hover{
     /* text-decoration: none; */
     color: black;
     /* width: 500px;
@@ -26,7 +26,7 @@
     transform: scale(1.3);
 }
 
-.Fast_And_Furious_X a, .Stree2 a, .Jatt_and_Juliet3 a, .Shaitaan a, .Prey a, .Article370 a, .Srikanth a, .Ardaas_sdbd a{
+.Fast_And_Furious_X a, .punjab95 a, .Chhaava a, .Stree2 a, .Jatt_and_Juliet3 a, .Shaitaan a, .Prey a, .Article370 a, .Srikanth a, .Ardaas_sdbd a{
     font-size: 20px;
     color: black;
     display: flex;
@@ -43,6 +43,17 @@
 }
 
 .trending img{
+    width: 250px;
+    height: 300px;
+}
+
+.upcoming{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.upcoming img{
     width: 250px;
     height: 300px;
 }
