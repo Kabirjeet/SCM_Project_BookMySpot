@@ -216,9 +216,9 @@ def search_movies():
 
 # ------------------------------------------------------English Routes----------------------------------------------
 
-@auth.route('/bookdeadpool')
-def bookdeadpool():
-    return render_template("bookdeadpool.html", user=current_user)
+@auth.route('/bookfastandfurious')
+def bookfastandfurious():
+    return render_template("bookfastandfurious.html", user=current_user)
 
 @auth.route('/bookprey')
 def bookprey():
@@ -234,9 +234,9 @@ def bookarticle370():
 def bookshaitaan():
     return render_template("bookshaitaan.html", user=current_user)
 
-@auth.route('/bookstree2')
-def bookstree2():
-    return render_template("bookstree2.html", user=current_user)
+@auth.route('/bookchhaava')
+def bookchhaava():
+    return render_template("bookchhaava.html", user=current_user)
 
 @auth.route('/booksrikanth')
 def booksrikanth():
