@@ -252,6 +252,10 @@ def bookjattandjuliet3():
 def bookardaas_sdbd():
     return render_template("bookardaas_sdbd.html", user=current_user)
 
+@auth.route('/bookShindaShindanopapa')
+def bookShindaShindanopapa():
+    return render_template("bookShindaShindanopapa.html", user=current_user)
+
 # ------------------------------------------------------Upcoming Movies----------------------------------------------
 @auth.route('/upcomingpunjab95')
 def upcomingpunjab95():
