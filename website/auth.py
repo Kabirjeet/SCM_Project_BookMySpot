@@ -234,9 +234,9 @@ def bookarticle370():
 def bookWelcomeToJungle():
     return render_template("bookWelcomeToJungle.html", user=current_user)
 
-@auth.route('/bookshaitaan')
-def bookshaitaan():
-    return render_template("bookshaitaan.html", user=current_user)
+@auth.route('/bookBabyJohn')
+def bookBabyJohn():
+    return render_template("bookBabyJohn.html", user=current_user)
 
 @auth.route('/bookchhaava')
 def bookchhaava():
