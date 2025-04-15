@@ -230,9 +230,13 @@ def bookprey():
 def bookarticle370():
     return render_template("bookarticle370.html", user=current_user)
 
-@auth.route('/bookshaitaan')
-def bookshaitaan():
-    return render_template("bookshaitaan.html", user=current_user)
+@auth.route('/bookWelcomeToJungle')
+def bookWelcomeToJungle():
+    return render_template("bookWelcomeToJungle.html", user=current_user)
+
+@auth.route('/bookBabyJohn')
+def bookBabyJohn():
+    return render_template("bookBabyJohn.html", user=current_user)
 
 @auth.route('/bookchhaava')
 def bookchhaava():
@@ -252,7 +256,19 @@ def bookjattandjuliet3():
 def bookardaas_sdbd():
     return render_template("bookardaas_sdbd.html", user=current_user)
 
+@auth.route('/bookShindaShindanopapa')
+def bookShindaShindanopapa():
+    return render_template("bookShindaShindanopapa.html", user=current_user)
+
+@auth.route('/bookRoseRosyteGulab')
+def bookRoseRoseyteGulab():
+    return render_template("bookRoseRosyteGulab.html", user=current_user)
+
 # ------------------------------------------------------Upcoming Movies----------------------------------------------
 @auth.route('/upcomingpunjab95')
 def upcomingpunjab95():
     return render_template("upcomingpunjab95.html", user=current_user)
+
+@auth.route('/upcominghousefull5')
+def upcominghousefull5():
+    return render_template("upcominghousefull5.html", user=current_user)

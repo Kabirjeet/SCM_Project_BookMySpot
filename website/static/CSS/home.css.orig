@@ -1,0 +1,207 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.headings{
+    background-color: #353535; 
+    color: white; 
+    width: 500px; 
+    padding-left: 50px;
+}
+
+@media(max-width: 432px) {
+    .headings{
+        max-width: 92vw;
+        padding-left: 20px;
+    }
+}
+
+
+.Fast_And_Furious_X a:hover, .punjab95 a:hover, .Chhaava a:hover, .Stree2 a:hover, .Jatt_and_Juliet3 a:hover, .Shaitaan a:hover, .Prey a:hover, .Article370 a:hover, .Srikanth a:hover, .Ardaas_sdbd a:hover, .Shinda_Shinda_No_Papa a:hover, .Rose_Rosy_te_Gulab a:hover{
+    /* text-decoration: none; */
+    color: black;
+    /* width: 500px;
+    height: 500px; */
+    transition-duration: 0.5s;
+    transform: scale(1.3);
+}
+
+.Fast_And_Furious_X a, .punjab95 a, .housefull5 a, .Chhaava a, .Stree2 a, .Jatt_and_Juliet3 a, .Shaitaan a, .Prey a, .Article370 a, .Srikanth a, .Ardaas_sdbd a, .Shinda_Shinda_No_Papa a, .Rose_Rosy_te_Gulab a{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+.trending{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.trending img{
+    width: 250px;
+    height: 300px;
+}
+
+.upcoming{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.upcoming img{
+    width: 250px;
+    height: 300px;
+}
+
+.dropdown{
+    background-color: #fab778;
+    display: flex;
+    gap: 50px;
+    padding:1% 0 1% 50%;
+
+}
+
+.eng, .hin, .pun{
+    margin-top: 40px;
+    display: flex;
+    gap: 18px;
+    /* opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out; */
+}
+
+.engcontainer, .hincontainer, .puncontainer{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 3s ease-in-out;
+
+}
+
+/* .eng.show {
+    opacity: 1; 
+    visibility: visible;
+} */
+
+.eng img, .hin img, .pun img{
+    margin-left: 5.8%;
+    width: 250px;
+    height: 300px;
+}
+
+/* .hin{
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-around;
+} */
+
+@media(max-width: 1200px){
+    .trending{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dropdown{
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+
+        background-color: #fab778;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding:5px 0px 5px 0px;
+    }
+
+    .eng, .hin, .pun{
+        margin-top: 80px;
+        display: flex;
+        justify-content: space-evenly;
+        overflow: auto;
+    }
+
+    .eng img, .hin img, .pun img, .trending img{
+        margin-left: 5.8%;
+        width: 150px;
+        height: 200px;
+    }
+}
+
+@media(max-width: 995px){
+    .trending{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dropdown{
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+
+        background-color: #fab778;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding:5px 0px 5px 0px;
+    }
+
+    .eng, .hin, .pun{
+        margin-top: 80px;
+        display: flex;
+        justify-content: space-evenly;
+        overflow: auto;
+    }
+
+    .eng img, .hin img, .pun img, .trending img{
+        margin-left: 5.8%;
+        width: 150px;
+        height: 200px;
+    }
+}
+
+@media(max-width: 430px){
+    .trending{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dropdown{
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+
+        background-color: #fab778;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        /* padding:5px 0px 5px 0px; */
+    }
+
+    .eng, .hin, .pun{
+        margin-top: 80px;
+        display: flex;
+        justify-content: space-evenly;
+        overflow: auto;
+    }
+
+    .eng img, .hin img, .pun img, .trending img{
+        margin-left: 5.8%;
+        width: 150px;
+        height: 200px;
+    }
+}
+
+
+
