@@ -230,6 +230,10 @@ def bookprey():
 def bookarticle370():
     return render_template("bookarticle370.html", user=current_user)
 
+@auth.route('/bookWelcomeToJungle')
+def bookWelcomeToJungle():
+    return render_template("bookWelcomeToJungle.html", user=current_user)
+
 @auth.route('/bookshaitaan')
 def bookshaitaan():
     return render_template("bookshaitaan.html", user=current_user)
