@@ -264,3 +264,7 @@ def bookRoseRoseyteGulab():
 @auth.route('/upcomingpunjab95')
 def upcomingpunjab95():
     return render_template("upcomingpunjab95.html", user=current_user)
+
+@auth.route('/upcominghousefull5')
+def upcominghousefull5():
+    return render_template("upcominghousefull5.html", user=current_user)
