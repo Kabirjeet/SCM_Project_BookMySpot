@@ -6,7 +6,7 @@ project:
 
 structure:
 branch: master
-  Instance:
+Instance:
 - database.db
 Website:
 - static:
