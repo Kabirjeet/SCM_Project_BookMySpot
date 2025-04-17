@@ -11,32 +11,32 @@ Instance:
 Website:
 - static:
 	- Bollywood_Poster
-	- CSS
-	- Hollywood_Poster
-	- JS
-	- Pollywood_Poster
-	- Upcoming
-	- Webimg
+ 	- CSS
+  	- Hollywood_Poster
+   	- JS
+    	- Pollywood_Poster
+     	- Upcoming
+      	- Webimg
 - Templates:
 	- Base.html
-	- bookardaas_sdbd.html
-	- bookBabyJohn.html
-	- bookchhaava.html
-	- bookfastandfurious.html
-	- bookjattandjuliet3.html
-	- bookprey.html
-	-bookRoseRosyteGulab.html
+ 	- bookardaas_sdbd.html
+  	- bookBabyJohn.html
+   	- bookchhaava.html
+    	- bookfastandfurious.html
+     	- bookjattandjuliet3.html
+      	- bookprey.html
+       	-bookRoseRosyteGulab.html
 	- bookShindaShindaNopapa.html
-	- booksrikanth.html
-	- bookWelcomeToJungle.html
-	- email_otp.html
-	- home.html
-	- login.html
-	- reset_password.html
-	- search_results.html
+ 	- booksrikanth.html
+  	- bookWelcomeToJungle.html
+   	- email_otp.html
+    	- home.html
+     	- login.html
+      	- reset_password.html
+       	- search_results.html
 	- sign_up.html
-	- upcominghousefull5.html
-	- upcomingpunjab95.html
+ 	- upcominghousefull5.html
+  	- upcomingpunjab95.html
 - __intit__.py
 - auth.py
 - database.db
