@@ -1,0 +1,68 @@
+project:
+  name: BookMySpot – Movie Booking Website
+  framework: Python (Flask)
+  language: HTML, CSS, JavaScript, Bootstrap
+  package_manager: None
+
+structure:
+branch: master
+  Instance:
+- database.db
+Website:
+- static:
+	- Bollywood_Poster
+	- CSS
+	- Hollywood_Poster
+	- JS
+	- Pollywood_Poster
+	- Upcoming
+	- Webimg
+- Templates:
+	- Base.html
+	- bookardaas_sdbd.html
+	- bookBabyJohn.html
+	- bookchhaava.html
+	- bookfastandfurious.html
+	- bookjattandjuliet3.html
+	- bookprey.html
+	-bookRoseRosyteGulab.html
+	- bookShindaShindaNopapa.html
+	- booksrikanth.html
+	- bookWelcomeToJungle.html
+	- email_otp.html
+	- home.html
+	- login.html
+	- reset_password.html
+	- search_results.html
+	- sign_up.html
+	- upcominghousefull5.html
+	- upcomingpunjab95.html
+- __intit__.py
+- auth.py
+- database.db
+- email_otp.py
+- models.py
+- views.py
+- main.py
+    
+
+
+dependencies:
+  python: latest
+  Flask: latest
+  Flask-login: latest
+  Flask-sqlalchemy: latest
+Flask-mail: latest
+Flask-Requests: latest
+
+devDependencies:
+  VS Code: latest
+
+
+
+environment:
+  port: 5000
+  base_url: " http://127.0.0.1:5000"
+
+description: >
+  This is the frontend of the BookMySpot – movie booking website. It handles user-facing interfaces like Booking movies, searching for movie, etc. Built with HTML, CSS, Bootstrap, JavaScript, Python Flask, Django. We have also used API integration to git the feature of movie searching.
