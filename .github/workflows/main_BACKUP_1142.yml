@@ -6,14 +6,17 @@ project:
 
 structure:
 branch: master
-Instance:
+<<<<<<< HEAD
+  Instance:
 =======
 Instance:
+>>>>>>> 3e2477a72b2d402e58ca1ced6edc6d874368b517
 - database.db
 Website:
 - static:
 	- Bollywood_Poster
-        - CSS
+<<<<<<< HEAD
+	- CSS
 	- Hollywood_Poster
 	- JS
 	- Pollywood_Poster
@@ -27,7 +30,7 @@ Website:
 	- bookfastandfurious.html
 	- bookjattandjuliet3.html
 	- bookprey.html
-        -bookRoseRosyteGulab.html
+	-bookRoseRosyteGulab.html
 	- bookShindaShindaNopapa.html
 	- booksrikanth.html
 	- bookWelcomeToJungle.html

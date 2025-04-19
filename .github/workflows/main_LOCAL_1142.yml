@@ -6,14 +6,12 @@ project:
 
 structure:
 branch: master
-Instance:
-=======
-Instance:
+  Instance:
 - database.db
 Website:
 - static:
 	- Bollywood_Poster
-        - CSS
+	- CSS
 	- Hollywood_Poster
 	- JS
 	- Pollywood_Poster
@@ -27,7 +25,7 @@ Website:
 	- bookfastandfurious.html
 	- bookjattandjuliet3.html
 	- bookprey.html
-        -bookRoseRosyteGulab.html
+	-bookRoseRosyteGulab.html
 	- bookShindaShindaNopapa.html
 	- booksrikanth.html
 	- bookWelcomeToJungle.html
@@ -39,34 +37,6 @@ Website:
 	- sign_up.html
 	- upcominghousefull5.html
 	- upcomingpunjab95.html
-=======
- 	- CSS
-  	- Hollywood_Poster
-   	- JS
-    	- Pollywood_Poster
-     	- Upcoming
-      	- Webimg
-- Templates:
-	- Base.html
- 	- bookardaas_sdbd.html
-  	- bookBabyJohn.html
-   	- bookchhaava.html
-    	- bookfastandfurious.html
-     	- bookjattandjuliet3.html
-      	- bookprey.html
-        -bookRoseRosyteGulab.html
-	- bookShindaShindaNopapa.html
- 	- booksrikanth.html
-  	- bookWelcomeToJungle.html
-   	- email_otp.html
-    	- home.html
-     	- login.html
-      	- reset_password.html
-       	- search_results.html
-	- sign_up.html
- 	- upcominghousefull5.html
-  	- upcomingpunjab95.html
->>>>>>> 3e2477a72b2d402e58ca1ced6edc6d874368b517
 - __intit__.py
 - auth.py
 - database.db
@@ -95,8 +65,4 @@ environment:
   base_url: " http://127.0.0.1:5000"
 
 description: >
-<<<<<<< HEAD
   This is the frontend of the BookMySpot – movie booking website. It handles user-facing interfaces like Booking movies, searching for movie, etc. Built with HTML, CSS, Bootstrap, JavaScript, Python Flask, Django. We have also used API integration to git the feature of movie searching.
-=======
-  This is the frontend of the BookMySpot – movie booking website. It handles user-facing interfaces like Booking movies, searching for movie, etc. Built with HTML, CSS, Bootstrap, JavaScript, Python Flask, Django.
->>>>>>> 3e2477a72b2d402e58ca1ced6edc6d874368b517
