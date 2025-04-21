@@ -272,3 +272,11 @@ def upcomingpunjab95():
 @auth.route('/upcominghousefull5')
 def upcominghousefull5():
     return render_template("upcominghousefull5.html", user=current_user)
+
+@auth.route('/upcominghavoc')
+def upcominghavoc():
+    return render_template("upcominghavoc.html", user=current_user)
+
+@auth.route('/upcomingraid2')
+def upcomingraid2():
+    return render_template("upcomingraid2.html", user=current_user)
