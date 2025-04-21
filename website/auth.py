@@ -242,9 +242,9 @@ def bookBabyJohn():
 def bookchhaava():
     return render_template("bookchhaava.html", user=current_user)
 
-@auth.route('/booksrikanth')
-def booksrikanth():
-    return render_template("booksrikanth.html", user=current_user)
+@auth.route('/bookKesari2')
+def bookKesari2():
+    return render_template("bookKesari2.html", user=current_user)
 
 # -------------------------------------------------------Punjabi Routes----------------------------------------------
 
