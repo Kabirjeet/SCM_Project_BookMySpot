@@ -136,7 +136,7 @@
 }
 
 @media(max-width: 995px){
-    .trending{
+    .trending , .upcoming{
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -170,7 +170,7 @@
 }
 
 @media(max-width: 430px){
-    .trending{
+    .trending , .upcoming{
         display: flex;
         flex-direction: column;
         gap: 20px;
